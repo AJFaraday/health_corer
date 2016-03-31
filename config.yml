@@ -1,0 +1,13 @@
+input_file: export.xml
+data_types:
+  - type: steps
+    file: steps.csv
+  - type: distance
+    file: distance.csv
+  - type: stairs
+    file: stairs.csv
+  - type: weight
+    file: weight.csv
+start_date: 2015-03-08
+ignore_start_date: true
+
