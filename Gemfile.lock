@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
+    mini_portile (0.6.2)
+    nokogiri (1.6.6.2)
+      mini_portile (~> 0.6.0)
     nori (2.6.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
@@ -16,13 +19,13 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby-units (2.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  nokogiri
   nori
   rspec
-
-BUNDLED WITH
-   1.10.5
+  ruby-units

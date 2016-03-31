@@ -67,6 +67,14 @@
     startDate="2015-03-07 23:39:36 +0100"
     endDate="2015-03-07 23:39:39 +0100"
     value="30"/>
+  <Record
+    type="HKQuantityTypeIdentifierStepCount"
+    sourceName="iPhone"
+    unit="count"
+    creationDate="2015-03-07 23:50:54 +0100"
+    startDate="2015-03-07 23:50:36 +0100"
+    endDate="2015-03-07 23:50:39 +0100"
+    value="40"/>
   <!-- distance records -->
   <Record
     type="HKQuantityTypeIdentifierDistanceWalkingRunning"
@@ -92,6 +100,14 @@
     startDate="2015-03-07 23:40:36 +0100"
     endDate="2015-03-07 23:40:39 +0100"
     value="0.00656749"/>
+  <Record
+    type="HKQuantityTypeIdentifierDistanceWalkingRunning"
+    sourceName="iPhone"
+    unit="mi"
+    creationDate="2015-03-07 23:50:54 +0100"
+    startDate="2015-03-07 23:50:36 +0100"
+    endDate="2015-03-07 23:50:39 +0100"
+    value="0.00856749"/>
   <!-- stairs data -->
   <Record
     type="HKQuantityTypeIdentifierFlightsClimbed"

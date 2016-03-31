@@ -2,14 +2,24 @@ require_relative 'spec_helper'
 
 describe Fetcher do
 
+
   before(:each) do
-    spec_data = File.read('spec_export.xml')
-    allow(File).to(
-      receive(:read).and_return(
-        OpenStruct.new(read: spec_data)
+    allow_any_instance_of(Fetcher).to(
+      receive(:input_file_path)
+    ).and_return(
+      File.join(
+        File.dirname(__FILE__),
+        'spec_export.xml'
       )
     )
+
+    Config::FILE_PATH = File.dirname(__FILE__) + '/spec_config.yml'
+
     @fetcher = Fetcher.new
+  end
+
+  it 'should have a config object' do
+    @fetcher.config.should be_a(Config)
   end
 
   it 'should have the weight records' do
@@ -21,6 +31,7 @@ describe Fetcher do
   it 'should have the distance records' do
     collection = @fetcher.data('distance')
     collection.should be_a(Distance::Collection)
+    puts collection.data_points
     collection.data_points.count.should eq(4)
   end
 

@@ -2,11 +2,11 @@ require_relative 'spec_helper'
 
 describe CsvWriter do
 
-  after(:each) do
+  def clean_up_file
     FileUtils.rm(
       File.join(
         File.dirname(__FILE__),
-        '..','output',
+        '..', 'output',
         'spec_output.csv'
       )
     )
@@ -17,9 +17,9 @@ describe CsvWriter do
       'spec_output.csv',
       ['date', 'weight'],
       [
-        {date: '2015-03-08', weight: '110'},
-        {date: '2015-03-09', weight: '111'},
-        {date: '2015-03-10', weight: '112'}
+        OpenStruct.new({date: '2015-03-08', weight: '110'}),
+        OpenStruct.new({date: '2015-03-09', weight: '111'}),
+        OpenStruct.new({date: '2015-03-10', weight: '112'})
       ]
     )
   end
@@ -29,9 +29,9 @@ describe CsvWriter do
     csv_writer.headers.should eq(['date', 'weight'])
 
     csv_writer.data.should be_an(Array)
-    csv_writer.data[0].should eq({date: '2015-03-08', weight: '110'})
-    csv_writer.data[1].should eq({date: '2015-03-09', weight: '111'})
-    csv_writer.data[2].should eq({date: '2015-03-10', weight: '112'})
+    csv_writer.data[0].should eq(OpenStruct.new({date: '2015-03-08', weight: '110'}))
+    csv_writer.data[1].should eq(OpenStruct.new({date: '2015-03-09', weight: '111'}))
+    csv_writer.data[2].should eq(OpenStruct.new({date: '2015-03-10', weight: '112'}))
   end
 
   it 'should write the data to a readable file' do
@@ -45,6 +45,8 @@ describe CsvWriter do
     data[1].should eq(['2015-03-08', '110'])
     data[2].should eq(['2015-03-09', '111'])
     data[3].should eq(['2015-03-10', '112'])
+
+    clean_up_file
   end
 
 end

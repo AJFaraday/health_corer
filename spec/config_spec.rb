@@ -3,7 +3,7 @@ require_relative 'spec_helper'
 describe Config do
 
   before(:each) do
-    Config::FILE_PATH = '../../spec/config.yml'
+    Config::FILE_PATH = File.dirname(__FILE__) + '/spec_config.yml'
     @config = Config.new
   end
 
@@ -22,13 +22,13 @@ describe Config do
   it 'should respond to start_date' do
     @config.should respond_to?(:start_date)
     @config.start_date.should be_a(Date)
-    @config.start_date.should eq(Date.new('2015-03-08'))
+    @config.start_date.to_s.should eq('2015-03-08')
   end
 
   it 'should respond to ignore_start_date' do
     @config.should respond_to?(:ignore_start_date)
-    @config.ignore_start_date.should be_a(Boolean)
-    @config.ignore_start_date.should be_true
+    @config.ignore_start_date.should be_a(TrueClass)
+    @config.ignore_start_date.should be true
   end
 
 end
